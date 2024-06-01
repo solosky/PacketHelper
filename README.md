@@ -5,4 +5,4 @@
 估计只能兼容老版本的天龙八部，新版本没做测试。
 
 
-![image](https://github.com/solosky/PacketHelper/blob/main/Screenshot.png)
+![image](https://github.com/solosky/PacketHelper/blob/master/Screenshot.png)
