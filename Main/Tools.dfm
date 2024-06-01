@@ -1,0 +1,74 @@
+object ToolsForm: TToolsForm
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = #38468#21152#24037#20855#31665
+  ClientHeight = 270
+  ClientWidth = 522
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControlTools: TPageControl
+    Left = 8
+    Top = 8
+    Width = 505
+    Height = 257
+    ActivePage = TabSheet1
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'HEX'#36716'Text'
+      object GroupBoxHex: TGroupBox
+        Left = 3
+        Top = 3
+        Width = 490
+        Height = 94
+        Caption = #36755#20837'Hex'
+        TabOrder = 0
+        object MemoHex: TMemo
+          Left = 2
+          Top = 15
+          Width = 486
+          Height = 77
+          Align = alClient
+          TabOrder = 0
+        end
+      end
+      object ButtonConvert: TButton
+        Left = 200
+        Top = 103
+        Width = 75
+        Height = 25
+        Caption = #36716#25442
+        TabOrder = 1
+        OnClick = ButtonConvertClick
+      end
+      object GroupBoxGBK: TGroupBox
+        Left = 0
+        Top = 128
+        Width = 493
+        Height = 97
+        Caption = 'GBK'
+        TabOrder = 2
+        object MemoGBK: TMemo
+          Left = 2
+          Top = 15
+          Width = 489
+          Height = 80
+          Align = alClient
+          TabOrder = 0
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = #27809#24819#22909
+      ImageIndex = 1
+    end
+  end
+end

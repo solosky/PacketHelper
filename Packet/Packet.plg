@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Packet - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\solosky\LOCALS~1\Temp\RSP17.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "PACKET_EXPORTS" /FR"Release/" /Fp"Release/Packet.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\game\新的分析\PacketHelper\Packet\App.cpp"
+"D:\game\新的分析\PacketHelper\Packet\Parser.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\solosky\LOCALS~1\Temp\RSP17.tmp" 
+Creating temporary file "C:\DOCUME~1\solosky\LOCALS~1\Temp\RSP18.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Release/Packet.pdb" /machine:I386 /out:"Release/Packet.dll" /implib:"Release/Packet.lib" 
+".\Release\App.obj"
+".\Release\Common.obj"
+".\Release\inlinehook.obj"
+".\Release\Net.obj"
+".\Release\Packet.obj"
+".\Release\Parser.obj"
+".\Release\StdAfx.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\solosky\LOCALS~1\Temp\RSP18.tmp"
+<h3>Output Window</h3>
+Compiling...
+App.cpp
+Parser.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Release/Packet.bsc"  ".\Release\StdAfx.sbr" ".\Release\App.sbr" ".\Release\Common.sbr" ".\Release\inlinehook.sbr" ".\Release\Net.sbr" ".\Release\Packet.sbr" ".\Release\Parser.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+Packet.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

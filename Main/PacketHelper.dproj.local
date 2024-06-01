@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.531,=E:\my\PacketHelper\Main\About.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.171,=F:\code\delphi\PacketHelper\lib\dcrHexEditor.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.281,D:\game\新的分析\PacketHelper\Main\SelectProcess.dfm=D:\game\新的分析\PacketHelper\Main\Process.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.781,=I:\PacketHelper\Main\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.296,F:\code\delphi\PacketHelper\Main.dfm=C:\Documents and Settings\solosky\My Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.296,F:\code\delphi\PacketHelper\Main.pas=C:\Documents and Settings\solosky\My Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.218,F:\code\delphi\PacketHelper\Unit1.pas=F:\code\delphi\PacketHelper\SelectProcess.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.984,=F:\code\delphi\PacketHelper\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.859,=F:\code\delphi\PacketHelper\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.390,E:\my\PacketHelper\Main\Unit2.dfm=E:\my\PacketHelper\Main\SendPacket.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.015,F:\code\delphi\PacketHelper\Unit1.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.781,=F:\code\delphi\PacketHelper\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.062,=F:\code\delphi\PacketHelper\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.437,I:\PacketHelper\Main\Unit1.pas=I:\PacketHelper\Main\Tools.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.281,D:\game\新的分析\PacketHelper\Main\SelectProcess.pas=D:\game\新的分析\PacketHelper\Main\Process.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.859,=C:\Documents and Settings\solosky\My Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.218,F:\code\delphi\PacketHelper\PacketHelper.dproj=C:\Documents and Settings\solosky\My Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.515,D:\game\新的分析\PacketHelper\Main\SendPacket.dfm=D:\game\新的分析\PacketHelper\Main\Packet.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.578,D:\game\新的分析\PacketHelper\Main\Unit2.pas=D:\game\新的分析\PacketHelper\Main\Filter.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.750,=D:\game\新的分析\PacketHelper\Main\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.125,=F:\code\delphi\PacketHelper\lib\dcrHexEditorEx.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.390,E:\my\PacketHelper\Main\Unit2.pas=E:\my\PacketHelper\Main\SendPacket.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.125,=E:\my\PacketHelper\Main\Unit2.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.578,D:\game\新的分析\PacketHelper\Main\Unit2.dfm=D:\game\新的分析\PacketHelper\Main\Filter.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.218,F:\code\delphi\PacketHelper\Unit1.dfm=F:\code\delphi\PacketHelper\SelectProcess.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.515,D:\game\新的分析\PacketHelper\Main\SendPacket.pas=D:\game\新的分析\PacketHelper\Main\Packet.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.437,I:\PacketHelper\Main\Unit1.dfm=I:\PacketHelper\Main\Tools.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

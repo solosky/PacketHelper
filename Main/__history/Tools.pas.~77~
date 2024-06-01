@@ -1,0 +1,87 @@
+unit Tools;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls;
+
+
+type
+  ISO8859String  = type AnsiString(1252);
+  GB2312String   = type AnsiString(936);
+
+type
+  TToolsForm = class(TForm)
+    PageControlTools: TPageControl;
+    TabSheet1: TTabSheet;
+    GroupBoxHex: TGroupBox;
+    MemoHex: TMemo;
+    ButtonConvert: TButton;
+    GroupBoxGBK: TGroupBox;
+    MemoGBK: TMemo;
+    TabSheet2: TTabSheet;
+    procedure ButtonConvertClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ToolsForm: TToolsForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TToolsForm.ButtonConvertClick(Sender: TObject);
+var
+  Tmp:Integer;
+  Str: string;
+  Part: string;
+  i: Integer;
+  Len: Integer;
+  Ptr: PByte;
+  Buffer: PByte;
+  Text: GB2312String;
+begin
+  Str:= MemoHex.Lines.Text;
+  if (Length(Str)>0) and ((Length(Str) mod 2)=0) then
+    begin
+      Len  := Length(Str) div 2;
+      Buffer := AllocMem(Len+1);
+      Ptr := Buffer;
+     for i:=0 to Len-1 do
+        begin
+        Part := copy(Str, i, 2);
+         if TryStrToInt('0x'+Part, Tmp) and (Tmp >= 0) and (Tmp<=$FF) then
+         begin
+           Ptr^ := Tmp;
+           Inc(Ptr);
+         end
+         else
+         begin
+           FreeMem(Buffer);
+           Len := 0;
+           Exit;
+         end;
+         Ptr^ := $0;
+        end;
+    end;
+    if Len>0 then
+    begin
+      MemoGBK.Lines.Clear;
+      //Text :=  WideString(Buffer);
+      ShowMessage(ISO8859String (PAnsiChar(Pointer(Buffer))));
+      MemoGBK.Lines.Add(PAnsiChar(Buffer));
+    end
+    else
+    begin
+     MemoGBK.Lines.Clear;
+     MemoGBK.Lines.Add('输入的字符无效！');
+    end;
+
+end;
+
+end.

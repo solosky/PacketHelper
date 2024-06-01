@@ -1,0 +1,97 @@
+object FormSendPacket: TFormSendPacket
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = #21457#36865#28216#25103#23553#21253
+  ClientHeight = 262
+  ClientWidth = 638
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poOwnerFormCenter
+  OnCreate = BitBtnResetClick
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 8
+    Width = 468
+    Height = 13
+    Caption = #35831#22312#19979#38754#30340#32534#36753#22120#20013#36755#20837#23553#21253#20869#23481#65292#21482#38656#36755#20837#21629#20196#21495#21644#25968#25454#21363#21487#65292#24207#21495#21644#38271#24230#20250#33258#21160#35843#25972
+  end
+  object BitBtnOk: TBitBtn
+    Left = 280
+    Top = 232
+    Width = 75
+    Height = 25
+    Caption = #21457#36865
+    Kind = bkOK
+    NumGlyphs = 2
+    TabOrder = 0
+    OnClick = BitBtnOkClick
+  end
+  object BitBtnCancel: TBitBtn
+    Left = 376
+    Top = 232
+    Width = 75
+    Height = 25
+    Caption = #21462#28040
+    Kind = bkCancel
+    NumGlyphs = 2
+    TabOrder = 1
+    OnClick = BitBtnCancelClick
+  end
+  object MPHexEditor: TMPHexEditor
+    Left = 8
+    Top = 24
+    Width = 625
+    Height = 202
+    Cursor = crIBeam
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    BytesPerRow = 16
+    BytesPerColumn = 1
+    Translation = tkAsIs
+    OffsetFormat = '-!10:0x|'
+    Colors.Background = clWindow
+    Colors.ChangedBackground = 11075583
+    Colors.ChangedText = clMaroon
+    Colors.CursorFrame = clNavy
+    Colors.Offset = clBlack
+    Colors.OddColumn = clBlue
+    Colors.EvenColumn = clNavy
+    Colors.CurrentOffsetBackground = clBtnShadow
+    Colors.OffsetBackground = clBtnFace
+    Colors.CurrentOffset = clBtnHighlight
+    Colors.Grid = clBtnFace
+    Colors.NonFocusCursorFrame = clAqua
+    Colors.ActiveFieldBackground = clWindow
+    FocusFrame = True
+    DrawGridLines = True
+    Version = 'october 7th, 2010; ?markus stephany, http://launchpad.net/dcr'
+    InsertMode = True
+    OnChange = MPHexEditorChange
+    ShowRuler = True
+    BytesPerBlock = -1
+  end
+  object BitBtnReset: TBitBtn
+    Left = 184
+    Top = 232
+    Width = 75
+    Height = 25
+    Caption = ' '#37325#32622
+    Kind = bkRetry
+    NumGlyphs = 2
+    TabOrder = 3
+    OnClick = BitBtnResetClick
+  end
+end

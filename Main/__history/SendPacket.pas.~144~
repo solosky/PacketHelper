@@ -1,0 +1,125 @@
+unit SendPacket;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Grids,
+  dcrHexEditor, dcrHexEditorEx, Main;
+
+type
+  TFormSendPacket = class(TForm)
+    Label1: TLabel;
+    BitBtnOk: TBitBtn;
+    BitBtnCancel: TBitBtn;
+    MPHexEditor: TMPHexEditor;
+    BitBtnReset: TBitBtn;
+    procedure BitBtnResetClick(Sender: TObject);
+    procedure MPHexEditorChange(Sender: TObject);
+    procedure BitBtnCancelClick(Sender: TObject);
+    procedure BitBtnOkClick(Sender: TObject);
+    procedure SetPacketData(Data:Pointer; Size:Integer);
+    procedure FormCreate(Sender: TObject);
+  private
+    Updating: Boolean;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormSendPacket: TFormSendPacket;
+  LastSendPid: Integer;
+  HasSendPacket: Boolean;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormSendPacket.BitBtnCancelClick(Sender: TObject);
+begin
+  Hide;
+end;
+
+procedure TFormSendPacket.BitBtnOkClick(Sender: TObject);
+var
+  Msg: Pointer;
+  PB: ^Byte;
+  i: Integer;
+  Ret : Integer;
+begin
+   if MPHexEditor.DataSize<6 then
+      showMessage('要发送的封包大小至少是6个字节！')
+   else
+      begin
+        Msg := allocmem(MPHexEditor.DataSize);
+        PB  := Msg;
+        for i := 0 to MPHexEditor.DataSize-1 do
+        begin
+           PB^ :=  MPHexEditor.Data[i];
+           Inc(PB);
+        end;
+          Ret := Main.SendPacket(Msg);
+          if Ret=RET_OK then
+          begin
+              Main.MainForm.StatusBar.Panels[0].Text := '封包发送成功！';
+              Hide;
+          end
+           else
+            showMessage('封包发送失败！！');
+      end;
+end;
+
+procedure TFormSendPacket.BitBtnResetClick(Sender: TObject);
+var
+i: Integer;
+begin
+  MPHexEditor.DataSize := 6;
+   for i := 0 to 5 do
+      MPHexEditor.SetMemory(i, Chr(0));
+end;
+
+procedure TFormSendPacket.FormCreate(Sender: TObject);
+begin
+    Updating := false;
+    LastSendPid := 0;
+  HasSendPacket: = false;
+    BitBtnResetClick(Sender);
+end;
+
+procedure TFormSendPacket.MPHexEditorChange(Sender: TObject);
+var
+  Length: Integer;
+begin
+  if (MPHexEditor.DataSize>6) and not Updating then
+     begin
+         Length := MPHexEditor.Data[2]+  (MPHexEditor.Data[3] Shl 8) +
+             (MPHexEditor.Data[4] Shl 16);
+         if Length<>MPHexEditor.DataSize-6 then
+         begin
+             Length := MPHexEditor.DataSize-6;
+             MPHexEditor.SetMemory(2, Chr(Length));
+             MPHexEditor.SetMemory(3, Chr(Length Shr 8));
+             MPHexEditor.SetMemory(4, Chr(Length Shr 16));
+         end;
+
+     end;
+end;
+
+procedure TFormSendPacket.SetPacketData(Data:Pointer; Size:Integer);
+var
+  b: ^Byte;
+  i: Integer;
+begin
+  Updating := true;
+   MPHexEditor.DataSize := Size;
+   b := Data;
+   for i := 0 to Size-1 do
+   begin
+     MPHexEditor.SetMemory(i, Chr(b^));
+     Inc(b);
+   end;
+   Updating := false;
+end;
+
+end.

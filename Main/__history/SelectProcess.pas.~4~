@@ -1,0 +1,90 @@
+unit SelectProcess;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ImgList, TLHelp32,
+  Vcl.ExtCtrls;
+
+type
+  TSelectProcessForm = class(TForm)
+    ListViewProcess: TListView;
+    EditKey: TEdit;
+    ButtonOk: TButton;
+    ButtonCancel: TButton;
+    ImageListDlg: TImageList;
+    Label1: TLabel;
+    ButtonRefresh: TButton;
+    RadioGroup1: TRadioGroup;
+    RadioButtonHeadJmp: TRadioButton;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    procedure ButtonCancelClick(Sender: TObject);
+    procedure ButtonOkClick(Sender: TObject);
+    procedure ButtonRefreshClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    SelectedPid: Integer;
+  end;
+
+var
+  SelectProcessForm: TSelectProcessForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TSelectProcessForm.ButtonCancelClick(Sender: TObject);
+begin
+  Self.ModalResult := mrCancel;
+  Self.CloseModal;
+end;
+
+procedure TSelectProcessForm.ButtonOkClick(Sender: TObject);
+begin
+  if ListViewProcess.SelCount=1 then
+    begin
+        SelectedPid := strToInt(ListViewProcess.Selected.Caption);
+        Self.ModalResult := mrOk;
+        Self.CloseModal;
+    end
+end;
+
+procedure TSelectProcessForm.ButtonRefreshClick(Sender: TObject);
+var
+    OK:Bool;
+    subItem: TListItem;
+    ProcessListHandle:THandle;
+    ProcessStruct:TProcessEntry32;
+begin
+    ListViewProcess.Clear;
+    ProcessListHandle:=CreateToolHelp32SnapShot(TH32CS_SNAPPROCESS,0);
+    ProcessStruct.dwSize:=SizeOf(ProcessStruct);
+    OK:=Process32First(ProcessListHandle,ProcessStruct);
+    while   Integer(OK) <> 0   do
+        begin
+          if length(EditKey.Text)>0 then
+            begin
+              if pos(UpperCase(EditKey.Text), UpperCase(ProcessStruct.szExeFile))<>0 then
+                begin
+                  subItem := ListViewProcess.Items.Add;
+                  subItem.Caption := IntToStr(ProcessStruct.th32ProcessID);
+                  subItem.subItems.Add(ProcessStruct.szExeFile);
+                end;
+            end
+          else
+            begin
+              subItem := ListViewProcess.Items.Add;
+              subItem.Caption := IntToStr(ProcessStruct.th32ProcessID);
+              subItem.subItems.Add(ProcessStruct.szExeFile);
+            end;
+
+          OK:=Process32Next(ProcessListHandle,ProcessStruct);
+        end;
+    closehandle(ProcessListHandle);
+end;
+
+end.
